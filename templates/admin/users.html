@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Manage Trekkers</title>
+</head>
+
+<body>
+
+<h1>Manage Trekkers</h1>
+
+<table border="1">
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for user in users_list %}
+
+    <tr>
+
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.status }}</td>
+
+        <td>
+
+            {% if user.status != "Blacklisted" %}
+
+            <form method="POST"
+                  action="{{ url_for('admin_blacklist_user', user_id=user.id) }}">
+
+                <button type="submit">Blacklist</button>
+
+            </form>
+
+            {% endif %}
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="{{ url_for('admin_dashboard') }}">Back</a>
+
+</body>
+
+</html>

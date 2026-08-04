@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+
+
+
+    <h1>Admin Dashboard</h1>
+
+
+    {% if pending_staff > 0 %}
+    <p>
+        {{ pending_staff }} staff registration(s) waiting for approval.
+        <a href="{{ url_for('admin_staff') }}">Review Staff</a>
+    </p>
+    {% endif %}
+
+    <h2>Summary</h2>
+
+    <p>
+        <b>Total Treks:</b> {{ total_treks }}
+    </p>
+
+    <p>
+        <b>Total Trekkers:</b> {{ total_users }}
+    </p>
+
+    <p>
+        <b>Total Staff:</b> {{ total_staff }}
+    </p>
+
+    <p>
+        <b>Total Bookings:</b> {{ total_bookings }}
+    </p>
+
+
+
+    <h2>Admin Menu</h2>
+
+    <a href="{{ url_for('admin_add_trek') }}">Add New Trek</a>
+
+    <br><br>
+
+    <a href="{{ url_for('admin_treks') }}">Manage Treks</a>
+
+    <br><br>
+
+    <a href="{{ url_for('admin_staff') }}">Manage Staff</a>
+
+    <br><br>
+
+    <a href="{{ url_for('admin_users') }}">Manage Trekkers</a>
+
+    <br><br>
+
+    <a href="{{ url_for('admin_bookings') }}">View Bookings</a>
+
+    <br><br>
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+    </center>
+
+</body>
+
+</html>
