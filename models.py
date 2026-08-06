@@ -14,7 +14,7 @@ class User(db.Model):
     mobile=db.Column(db.String(15),nullable=False)
     address=db.Column(db.String(255),nullable=False)
     role=db.Column(db.String(20),nullable=False)
-    status=db.Column(db.String(20),default="Pending")
+    status=db.Column(db.String(20),default="Active")
     created_at=db.Column(db.DateTime,default=datetime.utcnow)
 
     bookings=db.relationship("Booking",backref="user")
@@ -47,7 +47,7 @@ class Trek(db.Model):
     start_date=db.Column(db.Date)
     end_date=db.Column(db.Date)
     status=db.Column(db.String(20),default="Pending")
-    assigned_staff_id=db.Column(db.Integer,db.ForeignKey("trek_staff.id"),nullable=False)
+    assigned_staff_id=db.Column(db.Integer,db.ForeignKey("trek_staff.id"),nullable=True)
 
     bookings=db.relationship("Booking",backref="trek")
 
