@@ -1,0 +1,68 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trek Details</title>
+</head>
+
+<body>
+
+    <h1>Trek Details</h1>
+
+    <hr>
+
+    <p><b>Trek Name:</b> {{ trek.trek_name }}</p>
+
+    <p><b>Location:</b> {{ trek.location }}</p>
+
+    <p><b>Difficulty:</b> {{ trek.difficulty }}</p>
+
+    <p><b>Duration:</b> {{ trek.duration }} days</p>
+
+    <p><b>Start Date:</b> {{ trek.start_date }}</p>
+
+    <p><b>End Date:</b> {{ trek.end_date }}</p>
+
+    <p><b>Available Slots:</b> {{ trek.available_slots }}</p>
+
+    <p><b>Status:</b> {{ trek.status }}</p>
+
+    <p>
+        <b>Staff:</b>
+        {% if trek.staff %}
+            {{ trek.staff.trek_staff_name }}
+        {% else %}
+            None
+        {% endif %}
+    </p>
+
+    <hr>
+
+    {% if already_booked %}
+
+        <p>You have already booked this trek.</p>
+
+    {% elif trek.available_slots > 0 %}
+
+        <form method="POST"
+              action="{{ url_for('user_book_trek', trek_id=trek.id) }}">
+
+            <button type="submit">Book Trek</button>
+
+        </form>
+
+    {% else %}
+
+        <p>No slots available.</p>
+
+    {% endif %}
+
+    <br>
+
+    <a href="{{ url_for('user_treks') }}">Back to Treks</a>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,73 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Participants</title>
+</head>
+
+<body>
+
+    <h1>Participants</h1>
+
+    <h2>{{ trek.trek_name }}</h2>
+
+    <hr>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Booking ID</th>
+            <th>Trekker Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Booked On</th>
+            <th>Status</th>
+        </tr>
+
+        {% for booking in bookings %}
+
+        <tr>
+
+            <td>{{ booking.id }}</td>
+
+            <td>{{ booking.user.name }}</td>
+
+            <td>{{ booking.user.email }}</td>
+
+            <td>{{ booking.user.mobile }}</td>
+
+            <td>
+                {{ booking.booking_date.strftime('%d-%m-%Y') }}
+            </td>
+
+            <td>{{ booking.booking_status }}</td>
+
+        </tr>
+
+        {% else %}
+
+        <tr>
+            <td colspan="6">No participants have booked this trek.</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="{{ url_for('staff_trek_detail', trek_id=trek.id) }}">
+        Back to Trek
+    </a>
+
+    <br><br>
+
+    <a href="{{ url_for('staff_dashboard') }}">
+        Back to Dashboard
+    </a>
+
+</body>
+
+</html>
+```

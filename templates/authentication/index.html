@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trekking Management App</title>
+
+    <style>
+        body {
+            
+            text-align: center;
+            color: rgb(14, 70, 192)
+            ;
+            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+        }
+
+        .login-box {
+            background: rgba(0, 0, 0, 0.65);
+            width: 300px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #06bde1;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            background: #0288d1;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>Trek Beyond the Ordinary
+</h1>
+    <p style="color: bisque;">Explore, book, and manage trekking adventures easily. Our platform connects trekkers, trek staff, and administrators for a simple and organized trekking experience.
+</p>
+
+    <div class="login-box">
+
+        <h2 style="color: rgb(4, 166, 247);">Login</h2>
+
+        <form method="POST" action="{{ url_for('login') }}">
+
+            <input type="email" name="email" placeholder="Email" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+        <p class="message">{{ message }}</p>
+        {% endfor %}
+        {% endwith %}
+
+    </div>
+
+    
+    <h3 style="color: rgb(14, 221, 221);">Not Registered? Register Here!</h3>
+
+    <a href="{{ url_for('register') }}" style="background: #0cb935; color: white;">
+        Register as Trekker
+    </a>
+
+    <a href="{{ url_for('register_staff') }}" class="staff" style="background: #ca5d15; color: white;">
+        Register as Trek Staff
+    </a>
+
+</body>
+
+</html>

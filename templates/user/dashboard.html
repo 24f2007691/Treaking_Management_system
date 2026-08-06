@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trekker Dashboard</title>
+</head>
+
+<body>
+
+    <h1>Trekker Dashboard</h1>
+
+    <p>Welcome, {{ user.name }}</p>
+
+    <hr>
+
+    <h3>Dashboard</h3>
+
+    <p>Open Treks: {{ open_treks }}</p>
+
+    <p>My Bookings: {{ my_bookings }}</p>
+
+    <hr>
+
+    <a href="{{ url_for('user_treks') }}">Browse Treks</a>
+
+    <br><br>
+
+    <a href="{{ url_for('user_bookings') }}">My Bookings</a>
+
+    <br><br>
+
+    <a href="{{ url_for('user_profile') }}">My Profile</a>
+
+    <br><br>
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+</body>
+
+</html>

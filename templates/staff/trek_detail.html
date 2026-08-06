@@ -1,0 +1,117 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trek Details</title>
+</head>
+
+<body>
+
+    <h1>Trek Details</h1>
+
+    <hr>
+
+    <p>
+        <b>Trek Name:</b>
+        {{ trek.trek_name }}
+    </p>
+
+    <p>
+        <b>Location:</b>
+        {{ trek.location }}
+    </p>
+
+    <p>
+        <b>Difficulty:</b>
+        {{ trek.difficulty }}
+    </p>
+
+    <p>
+        <b>Duration:</b>
+        {{ trek.duration }} days
+    </p>
+
+    <p>
+        <b>Start Date:</b>
+        {{ trek.start_date }}
+    </p>
+
+    <p>
+        <b>End Date:</b>
+        {{ trek.end_date }}
+    </p>
+
+    <p>
+        <b>Registered Trekkers:</b>
+        {{ booked_count }}
+    </p>
+
+    <hr>
+
+    <h3>Update Trek</h3>
+
+    <form method="POST">
+
+        <label>Available Slots:</label>
+
+        <br>
+
+        <input type="number"
+               name="available_slots"
+               value="{{ trek.available_slots }}"
+               min="0"
+               required>
+
+        <br><br>
+
+        <label>Trek Status:</label>
+
+        <br>
+
+        <select name="status">
+
+            <option value="Approved"
+                {% if trek.status == "Approved" %}selected{% endif %}>
+                Approved
+            </option>
+
+            <option value="Open"
+                {% if trek.status == "Open" %}selected{% endif %}>
+                Open
+            </option>
+
+            <option value="Closed"
+                {% if trek.status == "Closed" %}selected{% endif %}>
+                Closed
+            </option>
+
+            <option value="Completed"
+                {% if trek.status == "Completed" %}selected{% endif %}>
+                Completed
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">Save Changes</button>
+
+    </form>
+
+    <br>
+
+    <a href="{{ url_for('staff_trek_participants', trek_id=trek.id) }}">
+        View Participants
+    </a>
+
+    <br><br>
+
+    <a href="{{ url_for('staff_dashboard') }}">
+        Back to Dashboard
+    </a>
+
+</body>
+
+</html>
+```

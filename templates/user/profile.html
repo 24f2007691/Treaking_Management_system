@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Profile</title>
+</head>
+
+<body>
+
+    <h1>My Profile</h1>
+
+    <hr>
+
+    <form method="POST">
+
+        <label>Full Name:</label>
+        <br>
+        <input type="text" name="name" value="{{ user.name }}" required>
+
+        <br><br>
+
+        <label>Age:</label>
+        <br>
+        <input type="number" name="age" value="{{ user.age }}" required>
+
+        <br><br>
+
+        <label>Email:</label>
+        <br>
+        <input type="email" name="email" value="{{ user.email }}" required>
+
+        <br><br>
+
+        <label>Mobile Number:</label>
+        <br>
+        <input type="text" name="mobile" value="{{ user.mobile }}" required>
+
+        <br><br>
+
+        <label>Address:</label>
+        <br>
+        <input type="text" name="address" value="{{ user.address }}" required>
+
+        <br><br>
+
+        <label>New Password:</label>
+        <br>
+        <input type="password" name="password">
+
+        <p>Leave password blank if you do not want to change it.</p>
+
+        <button type="submit">Save Changes</button>
+
+    </form>
+
+    <br>
+
+    <a href="{{ url_for('user_dashboard') }}">Back to Dashboard</a>
+
+</body>
+
+</html>

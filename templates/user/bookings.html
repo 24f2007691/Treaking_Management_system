@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Bookings</title>
+</head>
+
+<body>
+
+    <h1>My Bookings</h1>
+
+    <hr>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Trek</th>
+            <th>Location</th>
+            <th>Booked On</th>
+            <th>Booking Status</th>
+            <th>Payment Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for booking in bookings %}
+
+        <tr>
+
+            <td>{{ booking.trek.trek_name }}</td>
+
+            <td>{{ booking.trek.location }}</td>
+
+            <td>
+                {{ booking.booking_date.strftime('%d-%m-%Y') }}
+            </td>
+
+            <td>{{ booking.booking_status }}</td>
+
+            <td>{{ booking.payment_status }}</td>
+
+            <td>
+
+                {% if booking.booking_status == "Booked" %}
+
+                <form method="POST"
+                      action="{{ url_for('user_cancel_booking', booking_id=booking.id) }}">
+
+                    <button type="submit">Cancel Booking</button>
+
+                </form>
+
+                {% else %}
+
+                    No Action
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% else %}
+
+        <tr>
+            <td colspan="6">You have not booked any treks yet.</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="{{ url_for('user_treks') }}">Browse Treks</a>
+
+    <br><br>
+
+    <a href="{{ url_for('user_dashboard') }}">Back to Dashboard</a>
+
+</body>
+
+</html>
