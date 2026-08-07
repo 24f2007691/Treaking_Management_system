@@ -32,7 +32,7 @@
         }
 
         button {
-            background: #06bde1;
+            background: rgba(11, 178, 228, 0.65);
             color: white;
             font-weight: bold;
             cursor: pointer;
@@ -45,7 +45,7 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            background: #0288d1;
+            background: rgba(2, 136, 209, 0.65);
         }
 
         
@@ -61,7 +61,7 @@
 
     <div class="login-box">
 
-        <h2 style="color: rgb(4, 166, 247);">Login</h2>
+        <h2 style="color: rgb(4, 166, 247 );">Login</h2>
 
         <form method="POST" action="{{ url_for('login') }}">
 
@@ -84,11 +84,11 @@
     
     <h3 style="color: rgb(14, 221, 221);">Not Registered? Register Here!</h3>
 
-    <a href="{{ url_for('register') }}" style="background: #0cb935; color: white;">
+    <a href="{{ url_for('register') }}" style="background: rgba(12, 185, 53, 0.65); color: white;">
         Register as Trekker
     </a>
 
-    <a href="{{ url_for('register_staff') }}" class="staff" style="background: #ca5d15; color: white;">
+    <a href="{{ url_for('register_staff') }}" class="staff" style="background: rgba(202, 93, 21, 0.65); color: white;">
         Register as Trek Staff
     </a>
 
