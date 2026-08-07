@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html>
 
@@ -57,11 +56,7 @@
 
         <br>
 
-        <input type="number"
-               name="available_slots"
-               value="{{ trek.available_slots }}"
-               min="0"
-               required>
+        <input type="number" name="available_slots" value="{{ trek.available_slots }}" min="0" required>
 
         <br><br>
 
@@ -71,23 +66,19 @@
 
         <select name="status">
 
-            <option value="Approved"
-                {% if trek.status == "Approved" %}selected{% endif %}>
+            <option value="Approved" {% if trek.status=="Approved" %}selected{% endif %}>
                 Approved
             </option>
 
-            <option value="Open"
-                {% if trek.status == "Open" %}selected{% endif %}>
+            <option value="Open" {% if trek.status=="Open" %}selected{% endif %}>
                 Open
             </option>
 
-            <option value="Closed"
-                {% if trek.status == "Closed" %}selected{% endif %}>
+            <option value="Closed" {% if trek.status=="Closed" %}selected{% endif %}>
                 Closed
             </option>
 
-            <option value="Completed"
-                {% if trek.status == "Completed" %}selected{% endif %}>
+            <option value="Completed" {% if trek.status=="Completed" %}selected{% endif %}>
                 Completed
             </option>
 
@@ -114,4 +105,3 @@
 </body>
 
 </html>
-```

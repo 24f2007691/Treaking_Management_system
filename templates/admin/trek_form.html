@@ -21,8 +21,6 @@
 
         <br><br>
 
-
-
         <label>Difficulty:</label>
         <select name="difficulty">
             <option value="Easy">Easy</option>
@@ -52,7 +50,7 @@
 
         <br><br>
 
-        <label>Assign Staff:</label>
+
 
         <select name="assigned_staff_id">
 
@@ -60,7 +58,7 @@
 
             {% for staff in staff_list %}
             <option value="{{ staff.id }}">
-                {{ staff.name }}
+                {{ staff.trek_staff_name }}
             </option>
             {% endfor %}
 
@@ -75,8 +73,6 @@
     <br>
 
     <a href="{{ url_for('admin_treks') }}">Back</a>
-
-
 
 </body>
 
