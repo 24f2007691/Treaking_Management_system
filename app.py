@@ -560,7 +560,7 @@ def staff_trek_detail(trek_id):
         return redirect(url_for("staff_trek_detail", trek_id=trek.id))
 
     return render_template(
-        "staff/trek_form.html",
+        "staff/trek_detail.html",
         trek=trek,
         booked_count=booked_count
     )
